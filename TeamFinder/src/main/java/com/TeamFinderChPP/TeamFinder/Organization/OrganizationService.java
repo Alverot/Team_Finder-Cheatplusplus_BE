@@ -12,8 +12,13 @@ public class OrganizationService {
     public OrganizationService(OrganizationRepository organizationRepository) {
         this.organizationRepository = organizationRepository;
     }
-    public void addNewOrganization(Organization organization){
-        Organization newOrganization = new Organization(organization);
-        organizationRepository.insert(newOrganization);
+//    public void addNewOrganization(Organization organization){//o fosta versiune care nu functiona
+//        Organization newOrganization = new Organization(organization);
+//        organizationRepository.insert(newOrganization);
+//    }
+    public Organization addNewOrganization(String OwnerName,String email,String password,String OrganizationName,
+                                   String AddressOfOrganization){
+        Organization newOrganization = new Organization(OwnerName,email,password,OrganizationName,AddressOfOrganization);
+        return organizationRepository.insert(newOrganization);
     }
 }

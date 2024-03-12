@@ -1,39 +1,62 @@
 package com.TeamFinderChPP.TeamFinder.Organization;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Organization")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Getter
 public class Organization {
 
     @Id
     private ObjectId id;
 
-    private String OwnerName;
+    private String owner_name;
     private String email;
     private String password;
-    private String OrganizationName;
-    private String AddressOfOrganization;
+    private String organization_name;
+    private String address_of_organization;
     //private String InvitationURL; //not ready yet
 
 
     public Organization(Organization organization) {
 
         this.id = new ObjectId();
-        this.OwnerName = organization.getOwnerName();
-        this.email = organization.getEmail();
-        this.password = organization.getPassword();
-        this.OrganizationName = organization.getOrganizationName();
-        this.AddressOfOrganization = organization.getAddressOfOrganization();
+        this.owner_name = organization.owner_name;
+        this.email = organization.email;
+        this.password = organization.password;
+        this.organization_name = organization.organization_name;
+        this.address_of_organization = organization.address_of_organization;
 
+    }
+    public Organization(String ownername,
+                        String email,
+                        String password,
+                        String OrganizationName,
+                        String AddressOfOrganization){
+
+        this.owner_name = ownername;
+        this.email = email;
+        this.password = password;
+        this.organization_name = OrganizationName;
+        this.address_of_organization = AddressOfOrganization;
+
+    }
+
+
+    public String getowner_name() {
+        return owner_name;
+    }
+
+    public String getorganization_name() {
+        return organization_name;
+    }
+
+    public String getaddress_of_organization() {
+        return address_of_organization;
     }
 }
