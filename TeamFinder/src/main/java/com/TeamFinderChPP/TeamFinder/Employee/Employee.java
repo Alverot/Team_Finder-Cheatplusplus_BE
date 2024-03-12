@@ -1,4 +1,4 @@
-package com.TeamFinderChPP.TeamFinder;
+package com.TeamFinderChPP.TeamFinder.Employee;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,10 +15,15 @@ public class Employee {
 
     @Id
     private ObjectId id;
-    private String Text;
+    private String email;
+    private String password;
+    private String name;
+    //private Organization organization;
 
-    public Employee(String text) {
-        Text = text;
-
+    public Employee(String email, String password, String name)
+    {
+        this.email=email;
+        this.password=password;
+        this.name=name;
     }
 }
